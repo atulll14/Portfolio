@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atul — Electronics Engineer &amp; Software Developer</title>
+<meta name="description" content="Atul — ECE student at NIT Delhi, moving into software. C/C++, SQL, OOP, Data Structures &amp; Algorithms. Formerly at Bharat Electronics Limited, Panchkula.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f7f5;
+    --panel:#ffffff;
+    --ink:#15181c;
+    --muted:#5a616a;
+    --faint:#9198a1;
+    --line:#dee1de;
+    --accent:#2456a6;
+    --accent-soft:#eaf0f9;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit;}
+
+  .wrap{
+    max-width:700px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* header */
+  header{
+    position:sticky;
+    top:0;
+    background:rgba(246,247,245,0.88);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    z-index:10;
+  }
+  .nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 0;
+  }
+  .mark{
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+    font-weight:600;
+    text-decoration:none;
+  }
+  nav ul{
+    display:flex;
+    gap:22px;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  nav a{
+    font-size:0.88rem;
+    color:var(--muted);
+    text-decoration:none;
+    transition:color .15s ease;
+  }
+  nav a:hover{color:var(--ink);}
+
+  @media (max-width:560px){
+    nav ul{gap:14px;}
+    nav a{font-size:0.8rem;}
+  }
+
+  /* hero */
+  .hero{
+    padding:76px 0 56px;
+    opacity:0;
+    transform:translateY(8px);
+    animation:rise .7s ease forwards;
+  }
+  @keyframes rise{to{opacity:1; transform:translateY(0);}}
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 3.4rem);
+    line-height:1.05;
+  }
+  .hero .role{
+    margin-top:14px;
+    font-size:1.15rem;
+    color:var(--muted);
+    max-width:36ch;
+  }
+  .hero p.lede{
+    margin-top:22px;
+    max-width:52ch;
+    color:var(--ink);
+  }
+  .links{
+    margin-top:30px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .links a{
+    font-size:0.88rem;
+    text-decoration:none;
+    padding:9px 16px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    color:var(--ink);
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .links a.primary{
+    background:var(--ink);
+    color:var(--bg);
+    border-color:var(--ink);
+  }
+  .links a:hover{border-color:var(--accent); background:var(--accent-soft);}
+  .links a.primary:hover{background:var(--accent); border-color:var(--accent); color:#fff;}
+
+  /* sections */
+  section{
+    padding:52px 0;
+    border-top:1px solid var(--line);
+    scroll-margin-top:64px;
+  }
+  .label{
+    font-size:0.8rem;
+    color:var(--faint);
+    margin-bottom:22px;
+  }
+  section h2{
+    font-size:1.5rem;
+    margin-bottom:18px;
+  }
+  section > .label + h2{margin-top:-6px;}
+
+  .about p{
+    max-width:56ch;
+    color:var(--muted);
+  }
+  .about p + p{margin-top:14px;}
+
+  /* experience */
+  .role-block{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:20px;
+  }
+  @media (max-width:560px){
+    .role-block{grid-template-columns:1fr;}
+  }
+  .role-when{
+    font-size:0.85rem;
+    color:var(--faint);
+    padding-top:3px;
+  }
+  .role-body h3{
+    font-size:1.08rem;
+    font-weight:600;
+    font-family:'IBM Plex Sans', sans-serif;
+  }
+  .role-org{
+    color:var(--muted);
+    font-size:0.94rem;
+    margin-top:2px;
+  }
+  .role-body ul{
+    margin:14px 0 0;
+    padding-left:18px;
+    color:var(--muted);
+  }
+  .role-body li + li{margin-top:8px;}
+
+  /* skills */
+  .skill-row{
+    display:grid;
+    grid-template-columns:130px 1fr;
+    gap:16px;
+    padding:14px 0;
+    border-top:1px solid var(--line);
+  }
+  .skill-row:first-of-type{border-top:none;}
+  .skill-cat{
+    font-size:0.88rem;
+    color:var(--faint);
+    padding-top:2px;
+  }
+  .skill-vals{
+    color:var(--ink);
+  }
+  .skill-vals span{color:var(--muted);}
+
+  /* achievement */
+  .achieve{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+  }
+  .achieve + .achieve{
+    margin-top:20px;
+  }
+  .achieve .dot{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--accent);
+    margin-top:9px;
+    flex:none;
+  }
+  .achieve h3{
+    font-size:1.05rem;
+    font-weight:600;
+    font-family:'IBM Plex Sans', sans-serif;
+  }
+  .achieve p{
+    color:var(--muted);
+    margin-top:6px;
+    max-width:50ch;
+  }
+
+  /* projects */
+  .project{
+    padding:20px 0;
+    border-top:1px solid var(--line);
+  }
+  .project:first-of-type{border-top:none;}
+  .project-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .project h3{
+    font-size:1.05rem;
+    font-weight:600;
+    font-family:'IBM Plex Sans', sans-serif;
+  }
+  .project .stack{
+    font-size:0.82rem;
+    color:var(--faint);
+  }
+  .project p{
+    color:var(--muted);
+    margin-top:8px;
+    max-width:56ch;
+  }
+  .project .status{
+    display:inline-block;
+    margin-top:10px;
+    font-size:0.78rem;
+    color:var(--accent);
+  }
+
+  /* contact / footer */
+  footer{
+    padding:56px 0 70px;
+    border-top:1px solid var(--line);
+  }
+  footer h2{font-size:1.5rem;}
+  footer p{color:var(--muted); max-width:44ch; margin-top:12px;}
+  .contact-list{
+    margin-top:26px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .contact-list a{
+    text-decoration:none;
+    font-size:0.98rem;
+    color:var(--ink);
+    border-bottom:1px solid transparent;
+    width:fit-content;
+  }
+  .contact-list a:hover{border-color:var(--accent); color:var(--accent);}
+  .fine{
+    margin-top:48px;
+    font-size:0.8rem;
+    color:var(--faint);
+  }
+
+  ::selection{background:var(--accent-soft); color:var(--accent);}
+
+  @media (prefers-reduced-motion: reduce){
+    .hero{animation:none; opacity:1; transform:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-inner">
+    <a class="mark" data-scroll="top" href="javascript:void(0)">Atul</a>
+    <nav>
+      <ul>
+        <li><a data-scroll="about" href="javascript:void(0)">About</a></li>
+        <li><a data-scroll="experience" href="javascript:void(0)">Experience</a></li>
+        <li><a data-scroll="skills" href="javascript:void(0)">Skills</a></li>
+        <li><a data-scroll="interests" href="javascript:void(0)">Interests</a></li>
+        <li><a data-scroll="achievements" href="javascript:void(0)">Achievements</a></li>
+        <li><a data-scroll="projects" href="javascript:void(0)">Projects</a></li>
+        <li><a data-scroll="contact" href="javascript:void(0)">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <h1>Atul</h1>
+    <p class="role">Electronics engineering student, building toward software.</p>
+    <p class="lede">First-year ECE undergrad at NIT Delhi with hands-on exposure to the software side of quality control at Bharat Electronics, a PSU under the Ministry of Defence, now focused on core programming, data structures, and backend development.</p>
+    <div class="links">
+      <a class="primary" id="email-btn" href="mailto:atul.boss2007@gmail.com">Email me</a>
+      <a href="https://linkedin.com/in/atul-8a29ab333" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/atulll14" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <div class="label">About</div>
+      <p>I'm an Electronics and Communication Engineering student at NIT Delhi, currently steering my career toward software development. My first real exposure to engineering practice came from working on the software side of the Quality Control department at Bharat Electronics, a PSU under the Ministry of Defence, which is what pushed me to go deeper into programming fundamentals.</p>
+      <p>Right now I spend most of my time strengthening my core CS foundations — data structures, algorithms, and databases — while building small projects that put those fundamentals to work.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="label">Experience</div>
+      <div class="role-block">
+        <div class="role-when">2024 · 4 weeks</div>
+        <div class="role-body">
+          <h3>Software Intern, Quality Control</h3>
+          <div class="role-org">Bharat Electronics, Panchkula</div>
+          <ul>
+            <li>First-year internship focused on the software side of the Quality Control department at Bharat Electronics, a PSU under the Ministry of Defence.</li>
+            <li>Worked with internal QC data and reporting tools, helping structure and digitize test records for the internship report.</li>
+            <li>Gained early exposure to how software supports quality processes within a defence manufacturing environment.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="label">Skills</div>
+      <div class="skill-row">
+        <div class="skill-cat">Languages</div>
+        <div class="skill-vals">C, C++, Python, Java, JavaScript <span>(fundamentals)</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Foundations</div>
+        <div class="skill-vals">Object-Oriented Programming, Data Structures &amp; Algorithms <span>(basics)</span>, Problem Solving</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Databases</div>
+        <div class="skill-vals">SQL <span>(fundamentals)</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Tools &amp; Platforms</div>
+        <div class="skill-vals">VS Code, Git/GitHub, MS Excel, MATLAB <span>(learning)</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Hardware</div>
+        <div class="skill-vals">Breadboard Prototyping, Circuit Debugging, Multimeter, DSO/CRO</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="interests">
+    <div class="wrap">
+      <div class="label">Areas of Interest</div>
+      <div class="skill-row" style="border-top:none;">
+        <div class="skill-cat">Focus</div>
+        <div class="skill-vals">Software Development, Backend Development, Problem Solving &amp; DSA</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Exploring</div>
+        <div class="skill-vals">Artificial Intelligence, Machine Learning, Data Science</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="wrap">
+      <div class="label">Achievements</div>
+      <div class="achieve">
+        <span class="dot"></span>
+        <div>
+          <h3>Gold Medal — Inter-School Conclave, IIT Ropar</h3>
+          <p>Awarded gold at an inter-school conclave hosted by IIT Ropar during Class 12, competing against participants from schools across the region.</p>
+        </div>
+      </div>
+      <div class="achieve">
+        <span class="dot"></span>
+        <div>
+          <h3>Times of India Scholarship</h3>
+          <p>Awarded for academic excellence in CBSE Class X.</p>
+        </div>
+      </div>
+      <div class="achieve">
+        <span class="dot"></span>
+        <div>
+          <h3>Academic Record</h3>
+          <p>97% in CBSE Class X and 93% in Class XII boards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="label">Projects</div>
+
+      <div class="project">
+        <div class="project-head">
+          <h3>Smart Intruder Alarm System</h3>
+          <span class="stack">Embedded Systems</span>
+        </div>
+        <p>A sensor-based intruder detection system with motion sensing and real-time alerts, including LED indicators and tuned sensor response for reliable threat detection. Involved circuit debugging and hardware interfacing to keep response times consistent under varying conditions.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <h3>Mini Database Engine</h3>
+          <span class="stack">C++</span>
+        </div>
+        <p>A database engine built from scratch — starting with an in-memory hash table and CLI, extended with append-only log persistence, and a self-implemented B+ Tree index for efficient range queries.</p>
+        <span class="status">In progress</span>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <h3>Study Doubt-Solving Chatbot</h3>
+        </div>
+        <p>A chat-based tool where students type subject questions and receive tutor-style explanations, built as a full-stack web app with an LLM-backed response engine.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="wrap">
+      <h2>Get in touch</h2>
+      <p>Open to internships and entry-level software roles. The fastest way to reach me is email.</p>
+      <div class="contact-list">
+        <a href="mailto:atul.boss2007@gmail.com">atul.boss2007@gmail.com</a>
+        <a href="https://linkedin.com/in/atul-8a29ab333" target="_blank" rel="noopener">linkedin.com/in/atul-8a29ab333</a>
+        <a href="https://github.com/atulll14" target="_blank" rel="noopener">github.com/atulll14</a>
+      </div>
+      <div class="fine">Built by Atul.</div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Smooth-scroll every in-page nav item ourselves via data-scroll,
+    // avoiding real hash hrefs so preview sandboxes don't flag them
+    // as external navigation.
+    document.querySelectorAll('[data-scroll]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var targetId = this.getAttribute('data-scroll');
+        var target = document.getElementById(targetId);
+        if (!target) return;
+        e.preventDefault();
+        var headerOffset = targetId === 'top' ? 0 : 64;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      });
+    });
+
+    // Email button: copy the address AND try to open the mail client,
+    // so it's useful even where mailto: links get blocked.
+    var emailBtn = document.getElementById('email-btn');
+    if (emailBtn) {
+      var email = 'atul.boss2007@gmail.com';
+      var originalLabel = emailBtn.textContent;
+      emailBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).catch(function () {});
+        }
+        emailBtn.textContent = 'Copied — ' + email;
+        window.location.href = 'mailto:' + email;
+        setTimeout(function () {
+          emailBtn.textContent = originalLabel;
+        }, 2500);
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
