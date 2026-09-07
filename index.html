@@ -44,7 +44,7 @@
   a{color:inherit;}
 
   .wrap{
-    max-width:700px;
+    max-width:900px;
     margin:0 auto;
     padding:0 28px;
   }
@@ -98,6 +98,24 @@
     animation:rise .7s ease forwards;
   }
   @keyframes rise{to{opacity:1; transform:translateY(0);}}
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr 200px;
+    gap:48px;
+    align-items:start;
+  }
+  .hero-photo img{
+    width:100%;
+    aspect-ratio:3/4;
+    object-fit:cover;
+    display:block;
+    border:1px solid var(--line);
+    background:var(--panel);
+  }
+  @media (max-width:620px){
+    .hero-grid{grid-template-columns:1fr; gap:24px;}
+    .hero-photo{order:-1; width:104px;}
+  }
   .hero h1{
     font-size:clamp(2.4rem, 6vw, 3.4rem);
     line-height:1.05;
@@ -326,20 +344,27 @@
 
 <main id="top">
   <div class="wrap hero">
-    <h1>Atul</h1>
-    <p class="role">Electronics engineering student, building toward software.</p>
-    <p class="lede">First-year ECE undergrad at NIT Delhi with hands-on exposure to the software side of quality control at Bharat Electronics, a PSU under the Ministry of Defence, now focused on core programming, data structures, and backend development.</p>
-    <div class="links">
-      <a class="primary" id="email-btn" href="mailto:atul.boss2007@gmail.com">Email me</a>
-      <a href="https://linkedin.com/in/atul-8a29ab333" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/atulll14" target="_blank" rel="noopener">GitHub</a>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <h1>Atul</h1>
+        <p class="role">Electronics engineering student, building toward software.</p>
+        <p class="lede">First-year ECE undergrad at NIT Delhi with hands-on exposure to the software side of quality control at Bharat Electronics Limited, a PSU under the Ministry of Defence, now focused on core programming, data structures, and backend development.</p>
+        <div class="links">
+          <a class="primary" id="email-btn" href="mailto:atul.boss2007@gmail.com">Email me</a>
+          <a href="https://linkedin.com/in/atul-8a29ab333" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/atulll14" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="profile.jpg" alt="Atul" onerror="this.closest('.hero-photo').style.display='none'">
+      </div>
     </div>
   </div>
 
   <section id="about" class="about">
     <div class="wrap">
       <div class="label">About</div>
-      <p>I'm an Electronics and Communication Engineering student at NIT Delhi, currently steering my career toward software development. My first real exposure to engineering practice came from working on the software side of the Quality Control department at Bharat Electronics, a PSU under the Ministry of Defence, which is what pushed me to go deeper into programming fundamentals.</p>
+      <p>I'm an Electronics and Communication Engineering student at NIT Delhi, currently steering my career toward software development. My first real exposure to engineering practice came from working on the software side of the Quality Control department at Bharat Electronics Limited, a PSU under the Ministry of Defence, which is what pushed me to go deeper into programming fundamentals.</p>
       <p>Right now I spend most of my time strengthening my core CS foundations — data structures, algorithms, and databases — while building small projects that put those fundamentals to work.</p>
     </div>
   </section>
@@ -348,12 +373,12 @@
     <div class="wrap">
       <div class="label">Experience</div>
       <div class="role-block">
-        <div class="role-when">2024 · 4 weeks</div>
+        <div class="role-when">2026 · First Year · 4 weeks</div>
         <div class="role-body">
           <h3>Software Intern, Quality Control</h3>
-          <div class="role-org">Bharat Electronics, Panchkula</div>
+          <div class="role-org">Bharat Electronics Limited, Panchkula</div>
           <ul>
-            <li>First-year internship focused on the software side of the Quality Control department at Bharat Electronics, a PSU under the Ministry of Defence.</li>
+            <li>First-year internship focused on the software side of the Quality Control department at Bharat Electronics Limited, a PSU under the Ministry of Defence.</li>
             <li>Worked with internal QC data and reporting tools, helping structure and digitize test records for the internship report.</li>
             <li>Gained early exposure to how software supports quality processes within a defence manufacturing environment.</li>
           </ul>
